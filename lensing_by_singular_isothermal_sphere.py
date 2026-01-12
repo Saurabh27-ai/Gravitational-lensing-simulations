@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 theta_E = 2
-beta_x = 2
+beta_x = 0.3
 beta_y = 0
 
 N = 2000
@@ -40,3 +40,4 @@ plt.title('Singular Isothermal Sphere Lensing : Inner and outer images')
 plt.axis('equal')
 plt.legend()
 plt.show()
+
