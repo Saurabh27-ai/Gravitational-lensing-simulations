@@ -6,7 +6,7 @@ beta_x = 0.3
 beta_y = 0
 
 N = 2000
-theta_max = 5
+theta_max = 10
 x = np.linspace(-theta_max , theta_max , N)
 y = np.linspace(-theta_max , theta_max , N)
 X, Y = np.meshgrid(x, y)
@@ -19,7 +19,7 @@ alpha_y = theta_E * Y/r
 beta_X = X - alpha_x
 beta_Y = Y - alpha_y
 
-source_radius =0.005
+source_radius =0.088
 source_mask = (beta_X - beta_x)**2 + (beta_Y - beta_y)**2 <= source_radius**2
 
 detA = 1 - theta_E/r
@@ -40,4 +40,5 @@ plt.title('Singular Isothermal Sphere Lensing : Inner and outer images')
 plt.axis('equal')
 plt.legend()
 plt.show()
+
 
