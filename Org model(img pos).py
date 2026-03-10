@@ -22,7 +22,7 @@ b = b_rad * rad_to_arcsec
 print("Einstein radius =", b, "arcsec")
 r_c= 0.05*b
 
-# Grid
+#Creating grid
 N = 800
 theta_max = 5*b
 
@@ -51,27 +51,27 @@ day_dy, day_dx = np.gradient(alpha_y, dy, dx)
 detA = (1 - dax_dx)*(1 - day_dy) - dax_dy*day_dx
 
 # Critical curves
-"""plt.figure(figsize=(6,6))
+plt.figure(figsize=(6,6))
 plt.contour(X, Y, detA, levels=[0], colors='cyan')
 plt.xlabel(r"$\theta_x$ (arcsec)")
 plt.ylabel(r"$\theta_y$ (arcsec)")
 plt.title("Critical Curves")
 plt.axis('equal')
 plt.grid(True)
-plt.show()"""
+plt.show()
 
 # Caustic curves
 beta_x = X - alpha_x
 beta_y = Y - alpha_y
 
-"""plt.figure(figsize=(6,6))
+plt.figure(figsize=(6,6))
 plt.contour(beta_x, beta_y, detA, levels=[0], colors='red')
 plt.xlabel(r"$\beta_x$ (arcsec)")
 plt.ylabel(r"$\beta_y$ (arcsec)")
 plt.title("Caustic Curves")
 plt.axis('equal')
 plt.grid(True)
-plt.show()"""
+plt.show()
 
 # Source position
 beta_x0 = 0.02
@@ -82,6 +82,7 @@ alpha_x_interp = RegularGridInterpolator((y, x), alpha_x, bounds_error=False, fi
 alpha_y_interp = RegularGridInterpolator((y, x), alpha_y, bounds_error=False, fill_value=None)
 
 detA_interp = RegularGridInterpolator((y,x),detA)
+
 # Lens equation
 def lens_equation(theta):
 
@@ -141,4 +142,5 @@ plt.grid(True)
 plt.legend()
 
 plt.show()
+
 
