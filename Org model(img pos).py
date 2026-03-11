@@ -35,7 +35,7 @@ X, Y = np.meshgrid(x, y)
 sigma = sigma_v**2/(2*np.sqrt((1-e**2)*X**2 + Y**2 + r_c**2))   # Projected density, keeping G=1 units
 k= b/(2*np.sqrt((1-e**2)*X**2 + Y**2 + r_c**2))
 
-psi = np.sqrt((1-e**2)*X**2 + Y**2 + r_c**2)  # Potential term for SIE deflection, found by solving the Poisson equation
+psi = np.sqrt((1-e**2)*(X**2 + r_c**2) + Y**2 )  # Potential term for SIE deflection, found by solving the Poisson equation
 
 # SIE deflection, standard expressions taken from literature
 alpha_x = (b*np.sqrt(1-e**2)/e) * np.arctan(e*X/(psi + r_c))
@@ -142,5 +142,6 @@ plt.grid(True)
 plt.legend()
 
 plt.show()
+
 
 
